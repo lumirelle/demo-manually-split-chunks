@@ -13,7 +13,7 @@ export default {
   output: {
     filename: '[name]-[contenthash:8].js',
     clean: true,
-    path: import.meta.dirname + '/webpack-dist',
+    path: import.meta.dirname + '/dist/webpack',
   },
   module: {
     rules: [

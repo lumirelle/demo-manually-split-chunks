@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import { defineConfig } from "vite7";
 import vue from "@vitejs/plugin-vue";
 
 export default defineConfig({
@@ -6,10 +6,10 @@ export default defineConfig({
     vue(),
   ],
   build: {
-    outDir: 'dist/vite',
+    outDir: 'dist/vite7',
     assetsDir: '.',
     emptyOutDir: true,
-    rolldownOptions: {
+    rollupOptions: {
       output: {
         manualChunks: (id) => {
           // Extract large vendors into a separate chunk.
