@@ -11,19 +11,31 @@ export default defineConfig({
     emptyOutDir: true,
     rolldownOptions: {
       output: {
-        manualChunks: (id) => {
-          // Extract large vendors into a separate chunk.
-          if (id.match(/[\\/]node_modules[\\/]echarts(.*)/)) {
-            return 'echarts'
-          }
-          if (id.match(/[\\/]node_modules[\\/]element-plus(.*)/)) {
-            return 'element-plus'
-          }
-          // Extract common vendors into a separate chunk.
-          if (id.match(/[\\/]node_modules[\\/]/)) {
-            return 'vendor'
-          }
-          return null
+        codeSplitting: {
+          minSize: 20_000,
+          groups: [
+            {
+              name: 'echarts',
+              test: /[\\/]node_modules[\\/]echarts(.*)/,
+              priority: 30,
+            },
+            {
+              name: 'element-plus',
+              test: /[\\/]node_modules[\\/]element-plus(.*)/,
+              priority: 20,
+            },
+            {
+              name: 'vendor',
+              test: /[\\/]node_modules[\\/]/,
+              priority: 10,
+            },
+            {
+              name: 'default',
+              minSize: 10_000,
+              minShareCount: 2,
+              priority: 5,
+            }
+          ]
         },
       },
     },
