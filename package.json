@@ -2,7 +2,7 @@
   "name": "module-bundle-chunk",
   "version": "1.0.0",
   "type": "module",
-  "packageManager": "bun@1.3.11",
+  "packageManager": "bun@1.3.13",
   "scripts": {
     "build": "bun run --parallel 'build:*'",
     "build:webpack-default": "webpack build --config webpack.default.config.js --mode production",
@@ -13,25 +13,25 @@
     "build:vite-custom": "bun run ./node_modules/vite/bin/vite.js --config vite.custom.config.js build"
   },
   "devDependencies": {
-    "@vitejs/devtools": "^0.1.11",
-    "@vitejs/plugin-vue": "^6.0.5",
-    "@vue/compiler-sfc": "^3.5.31",
+    "@vitejs/devtools": "^0.1.15",
+    "@vitejs/plugin-vue": "^6.0.6",
+    "@vue/compiler-sfc": "^3.5.33",
     "css-loader": "^7.1.4",
-    "html-webpack-plugin": "^5.6.6",
+    "html-webpack-plugin": "^5.6.7",
     "mini-css-extract-plugin": "^2.10.2",
-    "terser-webpack-plugin": "^5.4.0",
-    "vite": "^8.0.3",
+    "terser-webpack-plugin": "^5.5.0",
+    "vite": "^8.0.10",
     "vite-plugin-inspect": "^12.0.0-beta.1",
-    "vite7": "npm:vite@^7.3.1",
+    "vite7": "npm:vite@^7.3.2",
     "vue-loader": "^17.4.2",
-    "webpack": "^5.105.4",
+    "webpack": "^5.106.2",
     "webpack-bundle-analyzer": "^5.3.0",
     "webpack-cli": "^7.0.2"
   },
   "dependencies": {
     "echarts": "^6.0.0",
-    "element-plus": "^2.13.6",
-    "vue": "^3.5.31",
-    "vue-router": "^5.0.4"
+    "element-plus": "^2.13.7",
+    "vue": "^3.5.33",
+    "vue-router": "^5.0.6"
   }
 }
