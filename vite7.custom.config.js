@@ -1,6 +1,7 @@
-import { defineConfig } from "vite7";
-import vue from "@vitejs/plugin-vue";
-import { visualizer } from "rollup-plugin-visualizer";
+import { process } from 'node:process'
+import vue from '@vitejs/plugin-vue'
+import { visualizer } from 'rollup-plugin-visualizer'
+import { defineConfig } from 'vite7'
 
 const inspectEnabled = process.env.INSPECT === 'true'
 
@@ -8,11 +9,11 @@ export default defineConfig({
   plugins: [
     vue(),
     ...(
-      inspectEnabled ? 
-      [visualizer({
-        filename: '.vite-inspect/vite7-custom/stats.html'
-      })] :
-      []
+      inspectEnabled
+        ? [visualizer({
+            filename: '.vite-inspect/vite7-custom/stats.html',
+          })]
+        : []
     ),
   ],
   build: {
@@ -36,5 +37,5 @@ export default defineConfig({
         },
       },
     },
-  }
+  },
 })

@@ -125,7 +125,7 @@ cacheable modules 4 MiB
 
 WARNING in asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
 This can impact web performance.
-Assets: 
+Assets:
   index-5bc6a522.js (698 KiB)
   846-46a29aa9.js (3.39 MiB)
 
@@ -163,7 +163,7 @@ cacheable modules 4 MiB
 
 WARNING in asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
 This can impact web performance.
-Assets: 
+Assets:
   vue-00cefcf7-30a9964a.js (246 KiB)
   vue-17c34557-8f147cb4.js (252 KiB)
   vue-0b8f0f24-2783131d.js (299 KiB)

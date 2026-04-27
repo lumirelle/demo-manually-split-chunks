@@ -1,6 +1,6 @@
 import { join } from 'node:path'
-import { VueLoaderPlugin } from 'vue-loader'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
+import { VueLoaderPlugin } from 'vue-loader'
 
 /**
  * @type {import('webpack').Configuration}
@@ -23,13 +23,13 @@ export default {
       {
         test: /\.css$/,
         use: 'css-loader',
-      }
+      },
     ],
   },
   plugins: [
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
-        template: './template.html',
+      template: './template.html',
     }),
   ],
   optimization: {

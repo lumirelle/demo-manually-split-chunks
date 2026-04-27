@@ -1,6 +1,6 @@
 import { join } from 'node:path'
-import { VueLoaderPlugin } from 'vue-loader'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
+import { VueLoaderPlugin } from 'vue-loader'
 
 /**
  * @type {import('webpack').Configuration}
@@ -23,13 +23,13 @@ export default {
       {
         test: /\.css$/,
         use: 'css-loader',
-      }
+      },
     ],
   },
   plugins: [
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
-        template: './template.html',
+      template: './template.html',
     }),
   ],
   optimization: {
@@ -55,7 +55,6 @@ export default {
           priority: 40,
         },
 
-
         // For business libraries, we only extract the commonly used ones into separate chunk groups.
         echarts: {
           name: 'echarts',
@@ -78,7 +77,7 @@ export default {
           minChunks: 2,
           reuseExistingChunk: true,
         },
-        
+
         // For source code, we only extract the commonly used ones into separate chunk groups.
         default: {
           name: 'source',

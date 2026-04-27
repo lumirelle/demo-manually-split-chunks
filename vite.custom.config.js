@@ -1,24 +1,27 @@
-import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
+import { process } from 'node:process'
+import vue from '@vitejs/plugin-vue'
+import { defineConfig } from 'vite'
 import inspect from 'vite-plugin-inspect'
 
 const inspectEnabled = process.env.INSPECT === 'true'
 
 export default defineConfig({
-  devtools: inspectEnabled ? { 
-    enabled: true,
-    port: 9998,
-    build: { withApp: true,  }
-  } : false,
+  devtools: inspectEnabled
+    ? {
+        enabled: true,
+        port: 9998,
+        build: { withApp: true },
+      }
+    : false,
   plugins: [
     vue(),
     ...(
-      inspectEnabled ? 
-      [inspect({ 
-          build: true,
-          outputDir: '.vite-inspect/vite-custom'
-        })] :
-      []
+      inspectEnabled
+        ? [inspect({
+            build: true,
+            outputDir: '.vite-inspect/vite-custom',
+          })]
+        : []
     ),
   ],
   build: {
@@ -63,16 +66,16 @@ export default defineConfig({
               minShareCount: 2,
               priority: 10,
             },
-            
+
             // For source code, we only extract the commonly used ones into separate chunk groups.
             {
               name: 'source',
               minShareCount: 2,
               priority: 5,
-            }
-          ]
+            },
+          ],
         },
       },
     },
-  }
+  },
 })
