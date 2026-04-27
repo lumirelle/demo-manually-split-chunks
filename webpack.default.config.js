@@ -1,8 +1,6 @@
 import { join } from 'node:path'
 import { VueLoaderPlugin } from 'vue-loader'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
-import TerserWebpackPlugin from 'terser-webpack-plugin'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
 /**
  * @type {import('webpack').Configuration}
@@ -24,7 +22,7 @@ export default {
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        use: 'css-loader',
       }
     ],
   },
@@ -32,16 +30,10 @@ export default {
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
         template: './template.html',
-    })
+    }),
   ],
   optimization: {
-    minimizer: [
-      new TerserWebpackPlugin({
-        extractComments: false,
-      }),
-      new MiniCssExtractPlugin({
-        filename: '[name]-[contenthash:8].css',
-      }),
-    ],
+    // XXX(Lumirelle): Used to keep the chunk structure clear for inspection. In production, you should not disable it.
+    minimize: false,
   },
 }

@@ -1,3 +1,4 @@
+
 <!-- src > App.vue -->
 <template>
 	<div class="container">
@@ -9,11 +10,11 @@
 <script setup>
 import { ref } from 'vue'
 import echarts from '../modules/echarts'
-import { ElInput } from 'element-plus'
+import { ElInput, ElButton, ElBreadcrumb } from 'element-plus'
 
 const count = ref(1)
 console.log('This is index.vue')
-console.log(ElInput, echarts)
+console.log(ElInput, ElButton, ElBreadcrumb, echarts)
 </script>
 
 <style>

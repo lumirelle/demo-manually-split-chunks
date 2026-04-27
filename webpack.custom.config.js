@@ -1,9 +1,6 @@
 import { join } from 'node:path'
 import { VueLoaderPlugin } from 'vue-loader'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
-import TerserWebpackPlugin from 'terser-webpack-plugin'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-// import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
 /**
  * @type {import('webpack').Configuration}
@@ -25,7 +22,7 @@ export default {
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        use: 'css-loader',
       }
     ],
   },
@@ -34,64 +31,55 @@ export default {
     new HtmlWebpackPlugin({
         template: './template.html',
     }),
-    // new BundleAnalyzerPlugin(),
   ],
   optimization: {
-    minimizer: [
-      new TerserWebpackPlugin({
-        extractComments: false,
-      }),
-      new MiniCssExtractPlugin({
-        filename: '[name]-[contenthash:8].css',
-      }),
-    ],
+    // XXX(Lumirelle): Used to keep the chunk structure clear for inspection. In production, you should not disable it.
+    minimize: false,
     splitChunks: {
       /**
        * We want apply cache groups to both `async` and `initial` chunks, so we should use `chunks: 'all'`.
        */
       chunks: 'all',
+
+      // Default Group options, which will be used to control the chunk size and other behaviors.
+      minSize: 100_000, // 100 KB
+      maxSize: 250_000, // 250 KB
+
       cacheGroups: {
-        // For vendor libraries who are base frameworks, group them into separate chunk groups, set `minSize` and `maxSize` to control the chunk size.
+        // For vendor libraries who are used in every page, we can group them into separate chunk groups.
         vue: {
           // Group name, which will be used as the chunk name.
           name: 'vue',
           // Group rules, which will be used to determine whether a module will be captured by this group.
-          test: /node_modules[\\/]vue/,
+          test: /node_modules[\\/]@?vue/,
           priority: 40,
-          // Group options, which will be used to control the chunk size and other behaviors.
-          minSize: 100_000, // 100 KB
-          maxSize: 250_000, // 250 KB
-          reuseExistingChunk: true,
         },
 
-        // For large vendor libraries, group them into separate chunk group, set `minSize` and `maxSize` to control the chunk size.
+
+        // For business libraries, we only extract the commonly used ones into separate chunk groups.
         echarts: {
           name: 'echarts',
           test: /node_modules[\\/]echarts/,
           priority: 30,
-          minSize: 100_000, // 100KB
-          maxSize: 250_000, // 250KB
+          minChunks: 2,
           reuseExistingChunk: true,
         },
         elementplus: {
           name: 'element-plus',
           test: /node_modules[\\/]element-plus/,
           priority: 20,
-          minSize: 100_000, // 100KB
-          maxSize: 250_000, // 250KB
+          minChunks: 2,
           reuseExistingChunk: true,
         },
-
-        // For other smaller vendor libraries, group them into one chunk group.
         defaultVendors: {
           name: 'vendor',
           test: /node_modules/,
           priority: 10,
-          minSize: 20_000,
+          minChunks: 2,
           reuseExistingChunk: true,
         },
         
-        // For source code, group them into one chunk group, set `minShareCount` to ensure that only modules shared by at least 2 chunks are captured by this group.
+        // For source code, we only extract the commonly used ones into separate chunk groups.
         default: {
           name: 'source',
           minChunks: 2,

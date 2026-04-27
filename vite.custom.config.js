@@ -1,69 +1,74 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-// import inspect from 'vite-plugin-inspect'
+import inspect from 'vite-plugin-inspect'
+
+const inspectEnabled = process.env.INSPECT === 'true'
 
 export default defineConfig({
-  /* devtools: { 
+  devtools: inspectEnabled ? { 
     enabled: true,
-    build: { withApp: true } 
-  }, */
+    port: 9998,
+    build: { withApp: true,  }
+  } : false,
   plugins: [
     vue(),
-    /* inspect({ 
-      build: true,
-      outputDir: '.vite-inspect/vite'
-    }), */
+    ...(
+      inspectEnabled ? 
+      [inspect({ 
+          build: true,
+          outputDir: '.vite-inspect/vite-custom'
+        })] :
+      []
+    ),
   ],
   build: {
     outDir: 'dist/vite-custom',
     assetsDir: '.',
     emptyOutDir: true,
+    // XXX(Lumirelle): Used to keep the chunk structure clear for inspection. In production, you should not disable it.
+    minify: false,
     rolldownOptions: {
       output: {
         codeSplitting: {
+          // Default Group options, which will be used to control the chunk size and other behaviors.
+          minSize: 100_000, // 100 KB
+          maxSize: 250_000, // 250 KB
+
           groups: [
-            // For vendor libraries who are base frameworks, group them into separate chunk groups, set `minSize` and `maxSize` to control the chunk size.
+            // For vendor libraries who are used in every page, we can group them into separate chunk groups.
             {
               // Group name, which will be used as the chunk name.
               name: 'vue',
               // Group rules, which will be used to determine whether a module will be captured by this group.
-              test: /node_modules[\\/]vue/,
+              test: /node_modules[\\/]@?vue/,
               priority: 40,
-              // Group options, which will be used to control the chunk size and other behaviors.
-              minSize: 100_000, // 100 KB
-              maxSize: 250_000, // 250 KB
             },
 
-            // For large vendor libraries, group them into separate chunk group, set `minSize` and `maxSize` to control the chunk size.
+            // For business libraries, we only extract the commonly used ones into separate chunk groups.
             {
               name: 'echarts',
               test: /node_modules[\\/]echarts/,
+              minShareCount: 2,
               priority: 30,
-              minSize: 100_000, // 100 KB
-              maxSize: 250_000, // 250 KB
             },
             {
               name: 'element-plus',
               test: /node_modules[\\/]element-plus/,
+              minShareCount: 2,
               priority: 20,
-              minSize: 100_000, // 100 KB
-              maxSize: 250_000, // 250 KB
             },
-
-            // For other smaller vendor libraries, group them into one chunk group.
             {
               name: 'vendor',
               test: /node_modules/,
+              minShareCount: 2,
               priority: 10,
-              minSize: 20_000,
             },
             
-            // For source code, group them into one chunk group, set `minShareCount` to ensure that only modules shared by at least 2 chunks are captured by this group.
+            // For source code, we only extract the commonly used ones into separate chunk groups.
             {
               name: 'source',
               minShareCount: 2,
               priority: 5,
-              minSize: 10_000,
             }
           ]
         },
