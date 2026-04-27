@@ -17,15 +17,26 @@
     "build:vite7-default": "bun run ./node_modules/vite7/bin/vite.js --config vite7.default.config.js build",
     "inspect:vite7-default": "INSPECT=true bun run build:vite7-default && bun run .vite-inspect/vite7-default/stats.html",
     "build:vite7-custom": "bun run ./node_modules/vite7/bin/vite.js --config vite7.custom.config.js build",
-    "inspect:vite7-custom": "INSPECT=true bun run build:vite7-custom && bun run .vite-inspect/vite7-custom/stats.html"
+    "inspect:vite7-custom": "INSPECT=true bun run build:vite7-custom && bun run .vite-inspect/vite7-custom/stats.html",
+    "lint": "bun run --parallel oxlint eslint",
+    "lint:fix": "oxlint --fix && eslint --fix",
+    "check": "bun run lint"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^8.2.0",
+    "@lumirelle/oxlint-config": "^0.2.2",
     "@vitejs/devtools": "^0.1.15",
     "@vitejs/plugin-vue": "^6.0.6",
     "@vue/compiler-sfc": "^3.5.33",
     "css-loader": "^7.1.4",
+    "eslint": "^10.2.1",
+    "eslint-plugin-oxlint": "^1.62.0",
     "html-webpack-plugin": "^5.6.7",
+    "nano-staged": "^1.0.2",
+    "oxlint": "^1.62.0",
+    "oxlint-tsgolint": "^0.22.1",
     "rollup-plugin-visualizer": "^7.0.1",
+    "simple-git-hooks": "git+https://github.com/toplenboren/simple-git-hooks.git#7625657",
     "vite": "^8.0.10",
     "vite-plugin-inspect": "^12.0.0-beta.1",
     "vite7": "npm:vite@^7.3.2",
@@ -39,5 +50,14 @@
     "element-plus": "^2.13.7",
     "vue": "^3.5.33",
     "vue-router": "^5.0.6"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "bunx nano-staged"
+  },
+  "nano-staged": {
+    "*": [
+      "oxlint --no-error-on-unmatched-pattern",
+      "eslint"
+    ]
   }
 }
