@@ -1,4 +1,4 @@
-import { process } from 'node:process'
+import process from 'node:process'
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
 import inspect from 'vite-plugin-inspect'

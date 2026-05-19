@@ -5,21 +5,23 @@
 8 items:
 
 ```log
-❯ : nr build:vite-default
+ : nr
+√ script to run » build:vite-default
 $ bun run ./node_modules/vite/bin/vite.js --config vite.default.config.js build
-vite v8.0.10 building client environment for production...
+✔ Console Ninja extension is connected to Vite, see https://tinyurl.com/2vt8jxzw
+vite v8.0.13 building client environment for production...
 ✓ 2173 modules transformed.
 computing gzip size...
-dist/vite-default/index.html                               0.44 kB │ gzip:   0.30 kB
-dist/vite-default/demo-BZLqDL_2.css                        0.03 kB │ gzip:   0.05 kB
+dist/vite-default/index.html                               0.44 kB │ gzip:   0.31 kB
+dist/vite-default/demo-CH7iB75L.css                        0.02 kB │ gzip:   0.04 kB
 dist/vite-default/module-async-C2CEgzJi.js                 0.10 kB │ gzip:   0.10 kB
-dist/vite-default/demo-CMy_r7Vo.js                         0.78 kB │ gzip:   0.46 kB
-dist/vite-default/demo2-16oAq_xZ.js                       50.79 kB │ gzip:  14.39 kB
-dist/vite-default/index-BmfpVcdE.js                       67.65 kB │ gzip:  19.45 kB
-dist/vite-default/runtime-dom.esm-bundler-noch1_FQ.js    155.49 kB │ gzip:  37.98 kB
-dist/vite-default/input-CXRqK8L4.js                    1,359.32 kB │ gzip: 328.82 kB
+dist/vite-default/demo-DICyHcH2.js                         0.79 kB │ gzip:   0.45 kB
+dist/vite-default/demo2-CE1aNW5J.js                       53.93 kB │ gzip:  14.91 kB
+dist/vite-default/index-hhP_j57-.js                       67.95 kB │ gzip:  19.51 kB
+dist/vite-default/runtime-dom.esm-bundler-rgVXy6z0.js    155.88 kB │ gzip:  38.09 kB
+dist/vite-default/echarts-DiuddBA4.js                  1,376.67 kB │ gzip: 330.10 kB
 
-✓ built in 361ms
+✓ built in 427ms
 ```
 
 ## Vite -- Custom Chunks Splitting
@@ -27,39 +29,41 @@ dist/vite-default/input-CXRqK8L4.js                    1,359.32 kB │ gzip: 328
 26 items:
 
 ```log
-❯ : nr build:vite-custom
+❯ : nr
+√ script to run » build:vite-custom
 $ bun run ./node_modules/vite/bin/vite.js --config vite.custom.config.js build
-vite v8.0.10 building client environment for production...
+✔ Console Ninja extension is connected to Vite, see https://tinyurl.com/2vt8jxzw
+vite v8.0.13 building client environment for production...
 ✓ 2173 modules transformed.
 computing gzip size...
-dist/vite-custom/index.html                      0.48 kB │ gzip:  0.31 kB
-dist/vite-custom/demo-BZLqDL_2.css               0.03 kB │ gzip:  0.05 kB
-dist/vite-custom/module-async-6Vqa-JHi.js        0.10 kB │ gzip:  0.10 kB
+dist/vite-custom/index.html                      0.55 kB │ gzip:  0.32 kB
+dist/vite-custom/demo-CH7iB75L.css               0.02 kB │ gzip:  0.04 kB
+dist/vite-custom/module-async-DyjcqUVj.js        0.10 kB │ gzip:  0.10 kB
 dist/vite-custom/rolldown-runtime-DC46zqPa.js    0.36 kB │ gzip:  0.25 kB
-dist/vite-custom/echarts-BZ1pqBaN.js             0.65 kB │ gzip:  0.29 kB
-dist/vite-custom/demo-B-k5gOcW.js                0.81 kB │ gzip:  0.45 kB
-dist/vite-custom/vue-KJndwYc1.js                 4.23 kB │ gzip:  1.56 kB
-dist/vite-custom/element-plus-CXtEGAJK.js        4.93 kB │ gzip:  1.55 kB
-dist/vite-custom/index-D_akMF2z.js               5.42 kB │ gzip:  2.21 kB
-dist/vite-custom/demo2-DiT7l-vJ.js              50.86 kB │ gzip: 14.40 kB
-dist/vite-custom/vue-CJ2XuwKi.js                62.84 kB │ gzip: 17.67 kB
-dist/vite-custom/echarts-DILQ0mIB.js            69.55 kB │ gzip: 17.06 kB
-dist/vite-custom/echarts-n2bjvFZq.js            71.22 kB │ gzip: 17.90 kB
-dist/vite-custom/echarts-TfV-tWP7.js            73.20 kB │ gzip: 20.51 kB
-dist/vite-custom/echarts-DHv1bxiw.js            77.55 kB │ gzip: 20.57 kB
-dist/vite-custom/echarts-D21JSS4W.js            81.30 kB │ gzip: 21.05 kB
-dist/vite-custom/echarts-BgjWGzpz.js            82.33 kB │ gzip: 24.51 kB
-dist/vite-custom/echarts-BAoohQav.js            82.98 kB │ gzip: 20.90 kB
-dist/vite-custom/echarts-BxwwwkJ_.js            84.48 kB │ gzip: 20.74 kB
-dist/vite-custom/element-plus-Bre9OvMr.js       90.60 kB │ gzip: 21.13 kB
-dist/vite-custom/echarts-C2xFtYxQ.js           113.36 kB │ gzip: 26.38 kB
-dist/vite-custom/echarts-CM3XW6nP.js           124.27 kB │ gzip: 30.26 kB
-dist/vite-custom/echarts-qT1zIm-g.js           126.55 kB │ gzip: 30.00 kB
-dist/vite-custom/echarts-LkC4bJvJ.js           143.53 kB │ gzip: 35.87 kB
-dist/vite-custom/vue-D-tbgfnb.js               155.49 kB │ gzip: 37.98 kB
-dist/vite-custom/echarts-CuqF8RNa.js           161.24 kB │ gzip: 37.24 kB
+dist/vite-custom/echarts-DNxrCaoX.js             0.65 kB │ gzip:  0.30 kB
+dist/vite-custom/demo-DbwTZXK9.js                0.85 kB │ gzip:  0.46 kB
+dist/vite-custom/element-plus-DGn9DAQ5.js        5.03 kB │ gzip:  1.60 kB
+dist/vite-custom/index-BHooU4r1.js               5.42 kB │ gzip:  2.21 kB
+dist/vite-custom/vue-CBoWPEre.js                13.24 kB │ gzip:  4.52 kB
+dist/vite-custom/demo2-D_Bk4JIq.js              54.04 kB │ gzip: 14.93 kB
+dist/vite-custom/vue-MScfqHyg.js                63.14 kB │ gzip: 17.73 kB
+dist/vite-custom/echarts-BPr1wGF6.js            70.03 kB │ gzip: 17.09 kB
+dist/vite-custom/echarts-BNXICRwy.js            71.67 kB │ gzip: 17.96 kB
+dist/vite-custom/echarts-gUKN4hVL.js            73.68 kB │ gzip: 20.66 kB
+dist/vite-custom/echarts-CUR5S4QW.js            77.90 kB │ gzip: 20.61 kB
+dist/vite-custom/echarts-BsCxuwfu.js            81.91 kB │ gzip: 21.03 kB
+dist/vite-custom/echarts-CIGmrhEl.js            82.72 kB │ gzip: 24.57 kB
+dist/vite-custom/echarts-BuO1vw5R.js            82.93 kB │ gzip: 20.91 kB
+dist/vite-custom/echarts-3f-xXFvb.js            85.00 kB │ gzip: 20.76 kB
+dist/vite-custom/element-plus-CnatuWDv.js       99.10 kB │ gzip: 22.32 kB
+dist/vite-custom/echarts-DsiHXKJ9.js           113.84 kB │ gzip: 26.18 kB
+dist/vite-custom/echarts-D8ZwaOPx.js           125.16 kB │ gzip: 30.23 kB
+dist/vite-custom/echarts-Bayj7irQ.js           127.55 kB │ gzip: 30.00 kB
+dist/vite-custom/echarts-EKdkcG0h.js           144.30 kB │ gzip: 35.89 kB
+dist/vite-custom/vue-Bi6EqL9K.js               149.53 kB │ gzip: 36.24 kB
+dist/vite-custom/echarts-BIJfDkWk.js           162.42 kB │ gzip: 37.42 kB
 
-✓ built in 309ms
+✓ built in 353ms
 ```
 
 ## Vite 7 -- Default Chunks Splitting
@@ -67,18 +71,29 @@ dist/vite-custom/echarts-CuqF8RNa.js           161.24 kB │ gzip: 37.24 kB
 7 items:
 
 ```log
-❯ : nr build:vite7-default
+❯ : nr
+√ script to run » build:vite7-default
 $ bun run ./node_modules/vite7/bin/vite.js --config vite7.default.config.js build
-vite v7.3.2 building client environment for production...
+vite v7.3.3 building client environment for production...
+node_modules/.bun/@vueuse+core@14.3.0+d99744f06a420513/node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+
+"/* #__PURE__ */"
+
+in "node_modules/.bun/@vueuse+core@14.3.0+d99744f06a420513/node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+node_modules/.bun/@vueuse+core@14.3.0+d99744f06a420513/node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+
+"/* #__PURE__ */"
+
+in "node_modules/.bun/@vueuse+core@14.3.0+d99744f06a420513/node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
 ✓ 2191 modules transformed.
 dist/vite7-default/index.html                    0.36 kB │ gzip:   0.26 kB
-dist/vite7-default/demo-BZLqDL_2.css             0.03 kB │ gzip:   0.05 kB
+dist/vite7-default/demo-CH7iB75L.css             0.03 kB │ gzip:   0.05 kB
 dist/vite7-default/module-async-BUWF_v6B.js      0.05 kB │ gzip:   0.07 kB
-dist/vite7-default/demo-BaRag9Ov.js              0.77 kB │ gzip:   0.42 kB
-dist/vite7-default/demo2-DIqbCoaT.js            70.87 kB │ gzip:  18.39 kB
-dist/vite7-default/index-DCovtQ0L.js           293.22 kB │ gzip:  69.11 kB
-dist/vite7-default/dayjs.min-Cf7_-0rr.js     1,420.73 kB │ gzip: 312.23 kB
-✓ built in 5.57s
+dist/vite7-default/demo-BMvMTVwn.js              0.76 kB │ gzip:   0.42 kB
+dist/vite7-default/demo2-1b5gJqwH.js            72.94 kB │ gzip:  18.88 kB
+dist/vite7-default/index-CCuguniC.js           293.70 kB │ gzip:  69.21 kB
+dist/vite7-default/echarts-BSqjoYCM.js       1,429.07 kB │ gzip: 313.75 kB
+✓ built in 6.48s
 ```
 
 ## Vite 7 -- Custom Chunks Splitting
@@ -86,19 +101,30 @@ dist/vite7-default/dayjs.min-Cf7_-0rr.js     1,420.73 kB │ gzip: 312.23 kB
 8 items:
 
 ```log
-❯ : nr build:vite7-custom
+❯ : nr
+√ script to run » build:vite7-custom
 $ bun run ./node_modules/vite7/bin/vite.js --config vite7.custom.config.js build
-vite v7.3.2 building client environment for production...
+vite v7.3.3 building client environment for production...
+node_modules/.bun/@vueuse+core@14.3.0+d99744f06a420513/node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+
+"/* #__PURE__ */"
+
+in "node_modules/.bun/@vueuse+core@14.3.0+d99744f06a420513/node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+node_modules/.bun/@vueuse+core@14.3.0+d99744f06a420513/node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+
+"/* #__PURE__ */"
+
+in "node_modules/.bun/@vueuse+core@14.3.0+d99744f06a420513/node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
 ✓ 2191 modules transformed.
 dist/vite7-custom/index.html                    0.42 kB │ gzip:   0.30 kB
-dist/vite7-custom/demo-BZLqDL_2.css             0.03 kB │ gzip:   0.05 kB
+dist/vite7-custom/demo-CH7iB75L.css             0.03 kB │ gzip:   0.05 kB
 dist/vite7-custom/module-async-BUWF_v6B.js      0.05 kB │ gzip:   0.07 kB
-dist/vite7-custom/demo-BjBJv-0k.js              0.76 kB │ gzip:   0.43 kB
-dist/vite7-custom/index-BnEO9Ov8.js             4.76 kB │ gzip:   1.86 kB
-dist/vite7-custom/demo2-DiGgNmUo.js            70.86 kB │ gzip:  18.39 kB
-dist/vite7-custom/vue-BJMHp9Fq.js             314.82 kB │ gzip:  73.29 kB
-dist/vite7-custom/dayjs.min-BvKFOFEf.js     1,395.03 kB │ gzip: 306.19 kB
-✓ built in 5.94s
+dist/vite7-custom/demo-RXjffYhX.js              0.76 kB │ gzip:   0.42 kB
+dist/vite7-custom/index-CSUxOB84.js             4.76 kB │ gzip:   1.86 kB
+dist/vite7-custom/demo2-DZ_fBN2O.js            72.94 kB │ gzip:  18.88 kB
+dist/vite7-custom/vue-D-fL7kac.js             319.85 kB │ gzip:  74.42 kB
+dist/vite7-custom/echarts-CRt9ehGP.js       1,398.77 kB │ gzip: 306.84 kB
+✓ built in 6.46s
 ```
 
 ## Webpack -- Default Chunks Splitting
@@ -106,36 +132,35 @@ dist/vite7-custom/dayjs.min-BvKFOFEf.js     1,395.03 kB │ gzip: 306.19 kB
 7 items:
 
 ```log
-❯ : nr build:webpack-default
+❯ : nr
+√ script to run » build:webpack-default
 $ webpack build --config webpack.default.config.js --mode production
-assets by status 4.16 MiB [cached] 6 assets
+assets by status 3.65 MiB [cached] 6 assets
 asset index.html 251 bytes [compared for emit]
-orphan modules 6.81 MiB [orphan] 2004 modules
+orphan modules 6.21 MiB [orphan] 1992 modules
 runtime modules 9.33 KiB 11 modules
-cacheable modules 4 MiB
-  modules by path ./node_modules/ 3.71 MiB 174 modules
+cacheable modules 3.42 MiB
+  modules by path ./node_modules/.bun/ 3.12 MiB 176 modules
   modules by path ./src/ 303 KiB
-    modules by path ./src/modules/*.js 1.28 KiB 4 modules
-    modules by path ./src/views/*.vue 4.03 KiB
-      ./src/views/demo.vue + 3 modules 1.54 KiB [built] [code generated]
-      + 3 modules
-    ./src/main.js 459 bytes [built] [code generated]
-    ./src/App.vue + 1 modules 548 bytes [built] [code generated]
+    modules by path ./src/modules/*.js 1.24 KiB 4 modules
+    modules by path ./src/views/*.vue 4.79 KiB 4 modules
+    ./src/main.js 530 bytes [built] [code generated]
+    ./src/App.vue + 1 modules 601 bytes [built] [code generated]
     ./src/routers/index.js + 7 modules 296 KiB [built] [code generated]
 
 WARNING in asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
 This can impact web performance.
 Assets:
-  index-5bc6a522.js (698 KiB)
-  846-46a29aa9.js (3.39 MiB)
+  index-f3022627.js (699 KiB)
+  483-9cebd463.js (2.88 MiB)
 
 WARNING in entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
 Entrypoints:
-  index (698 KiB)
-      index-5bc6a522.js
+  index (699 KiB)
+      index-f3022627.js
 
 
-webpack 5.106.2 compiled with 2 warnings in 2938 ms
+webpack 5.106.2 compiled with 2 warnings in 2461 ms
 ```
 
 ## Webpack -- Custom Chunks Splitting
@@ -143,48 +168,41 @@ webpack 5.106.2 compiled with 2 warnings in 2938 ms
 28 items:
 
 ```log
-❯ : nr build:webpack-custom
+❯ : nr
+√ script to run » build:webpack-custom
 $ webpack build --config webpack.custom.config.js --mode production
-assets by status 4.24 MiB [cached] 27 assets
-asset index.html 747 bytes [compared for emit]
-Entrypoint index [big] 1.58 MiB = 9 assets
-orphan modules 5.37 MiB [orphan] 1950 modules
-runtime modules 10.8 KiB 12 modules
-cacheable modules 4 MiB
-  modules by path ./node_modules/ 3.93 MiB 228 modules
-  modules by path ./src/ 73.1 KiB
-    modules by path ./src/modules/*.js 1.28 KiB 4 modules
-    modules by path ./src/views/*.vue 70.5 KiB
-      ./src/views/demo.vue + 3 modules 1.54 KiB [built] [code generated]
-      + 3 modules
-    ./src/main.js 459 bytes [built] [code generated]
-    ./src/App.vue + 1 modules 548 bytes [built] [code generated]
+assets by status 3.71 MiB [cached] 25 assets
+asset index.html 561 bytes [compared for emit]
+Entrypoint index [big] 1.02 MiB = 6 assets
+orphan modules 5.37 MiB [orphan] 1943 modules
+runtime modules 10.9 KiB 12 modules
+cacheable modules 3.42 MiB
+  modules by path ./node_modules/.bun/ 3.34 MiB 225 modules
+  modules by path ./src/ 75.8 KiB
+    modules by path ./src/modules/*.js 1.24 KiB 4 modules
+    modules by path ./src/views/*.vue 73.1 KiB 4 modules
+    ./src/main.js 530 bytes [built] [code generated]
+    ./src/App.vue + 1 modules 601 bytes [built] [code generated]
     ./src/routers/index.js 372 bytes [built] [code generated]
 
 WARNING in asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
 This can impact web performance.
 Assets:
-  vue-00cefcf7-30a9964a.js (246 KiB)
-  vue-17c34557-8f147cb4.js (252 KiB)
-  vue-0b8f0f24-2783131d.js (299 KiB)
-  vue-47020cf5-39965fee.js (246 KiB)
-  echarts-c1824f61-8863c407.js (259 KiB)
-  echarts-873c46ee-c8147aeb.js (259 KiB)
-  vendor-b5d721ca-e7b2a1b4.js (319 KiB)
+  vue-a5d024e0-f181c030.js (275 KiB)
+  vue-70f75098-b157f866.js (252 KiB)
+  echarts-de9ee17b-a66636bc.js (251 KiB)
+  vendor-eec623bc-e5b245ca.js (319 KiB)
 
 WARNING in entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
 Entrypoints:
-  index (1.58 MiB)
-      vue-9dd26f51-ae992875.js
-      vue-f6ec1f32-4055e328.js
-      vue-37dcf926-917f3e96.js
-      vue-17c34557-8f147cb4.js
-      vue-0b8f0f24-2783131d.js
-      vue-47020cf5-39965fee.js
-      vue-950dee89-ebd9ee49.js
-      vue-00cefcf7-30a9964a.js
-      index-6a72ee0a.js
+  index (1.02 MiB)
+      vue-eeff1e3f-66384739.js
+      vue-c4d15388-71b0c3fd.js
+      vue-70f75098-b157f866.js
+      vue-a05153f5-ca650ddc.js
+      vue-a5d024e0-f181c030.js
+      index-87b9c45d.js
 
 
-webpack 5.106.2 compiled with 2 warnings in 2748 ms
+webpack 5.106.2 compiled with 2 warnings in 2308 ms
 ```

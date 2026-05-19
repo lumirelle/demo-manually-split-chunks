@@ -1,4 +1,4 @@
-import { process } from 'node:process'
+import process from 'node:process'
 import vue from '@vitejs/plugin-vue'
 import { visualizer } from 'rollup-plugin-visualizer'
 import { defineConfig } from 'vite7'
