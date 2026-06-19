@@ -12,7 +12,7 @@ export default {
   output: {
     filename: '[name]-[contenthash:8].js',
     clean: true,
-    path: join(import.meta.dirname, '/dist/webpack-custom'),
+    path: join(import.meta.dirname, '/dist/webpack-custom-with-size'),
   },
   module: {
     rules: [
@@ -40,6 +40,10 @@ export default {
        * We want apply cache groups to both `async` and `initial` chunks, so we should use `chunks: 'all'`.
        */
       chunks: 'all',
+
+      // Default Group options, which will be used to control the chunk size and other behaviors.
+      minSize: 100_000, // 100 KB
+      maxSize: 250_000, // 250 KB
 
       cacheGroups: {
         // For vendor libraries who are used in every page, we can group them into separate chunk groups.

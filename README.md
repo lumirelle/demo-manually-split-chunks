@@ -46,6 +46,51 @@ dist/vite-default/echarts-bTlC61tD.js                  1,431.93 kB │ gzip: 346
 
 ## Vite -- Custom Chunks Splitting
 
+11 items, totally 1.62 MiB:
+
+```log
+❯ mise build:vite-custom
+[build:vite-custom] $ bun run ./node_modules/vite/bin/vite.js --config vite.custom.config.js build
+vite v8.0.16 building client environment for production...
+✓ 2186 modules transformed.
+computing gzip size...
+dist/vite-custom/index.html                        0.40 kB │ gzip:   0.29 kB
+dist/vite-custom/demo-CH7iB75L.css                 0.02 kB │ gzip:   0.04 kB
+dist/vite-custom/module-async-DOLldLYO.js          0.10 kB │ gzip:   0.10 kB
+dist/vite-custom/rolldown-runtime-D7D4PA-g.js      0.36 kB │ gzip:   0.25 kB
+dist/vite-custom/source-Dy4p2JE3.js                0.49 kB │ gzip:   0.25 kB
+dist/vite-custom/demo-D-SE4SL8.js                  0.81 kB │ gzip:   0.46 kB
+dist/vite-custom/index-DTGTyWTZ.js                 4.99 kB │ gzip:   2.04 kB
+dist/vite-custom/demo2-DO9PjXQF.js                55.14 kB │ gzip:  14.89 kB
+dist/vite-custom/element-plus-D_6SA3b_.js        104.19 kB │ gzip:  23.78 kB
+dist/vite-custom/vue-B7SvSYb3.js                 221.16 kB │ gzip:  56.18 kB
+dist/vite-custom/echarts-C6xWpVIx.js           1,321.82 kB │ gzip: 321.74 kB
+
+[INVALID_ANNOTATION] A comment "/* #__PURE__ */" in "node_modules/.aube/@vueuse+core@14.3.0_vue@3.5.38_typescript@6.0.3_/node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+      ╭─[ node_modules/.aube/@vueuse+core@14.3.0_vue@3.5.38_typescript@6.0.3_/node_modules/@vueuse/core/dist/index.js:3362:1 ]
+      │
+ 3362 │ /* #__PURE__ */
+      │ ───────┬───────
+      │        ╰───────── comment ignored due to position
+      │
+      │ Help: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+──────╯
+
+[INVALID_ANNOTATION] A comment "/* #__PURE__ */" in "node_modules/.aube/@vueuse+core@14.3.0_vue@3.5.38_typescript@6.0.3_/node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+      ╭─[ node_modules/.aube/@vueuse+core@14.3.0_vue@3.5.38_typescript@6.0.3_/node_modules/@vueuse/core/dist/index.js:5780:23 ]
+      │
+ 5780 │ const defaultState = (/* #__PURE__ */ {
+      │                       ───────┬───────
+      │                              ╰───────── comment ignored due to position
+      │
+      │ Help: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+──────╯
+
+✓ built in 930ms
+```
+
+## Vite -- Custom Chunks Splitting with Size
+
 40 items, totally 3.90 MiB:
 
 ```log
@@ -220,6 +265,52 @@ webpack 5.107.2 compiled with 2 warnings in 2792 ms
 
 ## Webpack -- Custom Chunks Splitting
 
+9 items, totally 3.83 MiB:
+
+```log
+❯ mise build:webpack-custom
+[build:webpack-custom] $ webpack build --config webpack.custom.config.js --mode production
+assets by status 3.64 MiB [big]
+  asset echarts-ca8967ef.js 1.67 MiB [emitted] [immutable] [big] (name: echarts) (id hint: echarts)
+  asset vue-a7f552cd.js 1010 KiB [emitted] [immutable] [big] (name: vue) (id hint: vue)
+  asset vendor-2fd68fc7.js 1000 KiB [emitted] [immutable] [big] (name: vendor) (id hint: defaultVendors)
+asset element-plus-9966d68f.js 82.6 KiB [emitted] [immutable] (name: element-plus) (id hint: elementplus)
+asset demo2-95f0505f.js 81.2 KiB [emitted] [immutable] (name: demo2)
+asset index-c9ca6ea3.js 31.8 KiB [emitted] [immutable] (name: index)
+asset demo-ac04c4b2.js 7.66 KiB [emitted] [immutable] (name: demo)
+asset module-async-8f0b5594.js 451 bytes [emitted] [immutable] (name: module-async)
+asset index.html 304 bytes [emitted]
+Entrypoint index [big] 1.02 MiB = vue-a7f552cd.js 1010 KiB index-c9ca6ea3.js 31.8 KiB
+orphan modules 5.91 MiB [orphan] 1986 modules
+runtime modules 10.3 KiB 12 modules
+cacheable modules 3.54 MiB
+  modules by path ./node_modules/.aube/ 3.46 MiB 195 modules
+  modules by path ./src/ 76.7 KiB
+    modules by path ./src/modules/*.js 1.23 KiB 4 modules
+    modules by path ./src/views/*.vue 73.9 KiB 4 modules
+    ./src/main.js 530 bytes [built] [code generated]
+    ./src/App.vue + 1 modules 674 bytes [built] [code generated]
+    ./src/routers/index.js 361 bytes [built] [code generated]
+
+WARNING in asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+This can impact web performance.
+Assets:
+  vue-a7f552cd.js (1010 KiB)
+  echarts-ca8967ef.js (1.67 MiB)
+  vendor-2fd68fc7.js (1000 KiB)
+
+WARNING in entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+Entrypoints:
+  index (1.02 MiB)
+      vue-a7f552cd.js
+      index-c9ca6ea3.js
+
+
+webpack 5.107.2 compiled with 2 warnings in 2847 ms
+```
+
+## Webpack -- Custom Chunks Splitting with Size
+
 25 items, totally 3.88 MiB:
 
 ```log
@@ -270,3 +361,11 @@ Entrypoints:
 
 webpack 5.107.2 compiled with 2 warnings in 2635 ms
 ```
+
+## Summary
+
+It's recommended to use manually chunks splitting without specific min & max size:
+
+- Manually chunks splitting can improve the cache efficiency;
+- Specific min & max size will increase totally dist size;
+- Specific min & max size hides the real problem: you'd better not load to much things for one page, all of the optimizations apply on a huge page are just like patches, not the cures.

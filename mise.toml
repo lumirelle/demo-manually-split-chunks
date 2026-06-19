@@ -30,11 +30,17 @@ run = "webpack build --config webpack.default.config.js --mode production"
 [tasks."build:webpack-custom"]
 run = "webpack build --config webpack.custom.config.js --mode production"
 
+[tasks."build:webpack-custom-with-size"]
+run = "webpack build --config webpack.custom-with-size.config.js --mode production"
+
 [tasks."build:vite-default"]
 run = "bun run ./node_modules/vite/bin/vite.js --config vite.default.config.js build"
 
 [tasks."build:vite-custom"]
 run = "bun run ./node_modules/vite/bin/vite.js --config vite.custom.config.js build"
+
+[tasks."build:vite-custom-with-size"]
+run = "bun run ./node_modules/vite/bin/vite.js --config vite.custom-with-size.config.js build"
 
 [tasks."build:vite7-default"]
 run = "bun run ./node_modules/vite7/bin/vite.js --config vite7.default.config.js build"
@@ -51,6 +57,9 @@ run = "webpack inspect --config webpack.default.config.js --mode production -- -
 [tasks."inspect:webpack-custom"]
 run = "webpack inspect --config webpack.custom.config.js --mode production -- --analyze"
 
+[tasks."inspect:webpack-custom-with-size"]
+run = "webpack inspect --config webpack.custom-with-size.config.js --mode production -- --analyze"
+
 [tasks."inspect:vite-default"]
 env = { INSPECT = true }
 run = "bun run ./node_modules/vite/bin/vite.js --config vite.default.config.js build"
@@ -58,6 +67,10 @@ run = "bun run ./node_modules/vite/bin/vite.js --config vite.default.config.js b
 [tasks."inspect:vite-custom"]
 env = { INSPECT = true }
 run = "bun run ./node_modules/vite/bin/vite.js --config vite.custom.config.js build"
+
+[tasks."inspect:vite-custom-with-size"]
+env = { INSPECT = true }
+run = "bun run ./node_modules/vite/bin/vite.js --config vite.custom-with-size.config.js build"
 
 [tasks."inspect:vite7-default"]
 env = { INSPECT = true }

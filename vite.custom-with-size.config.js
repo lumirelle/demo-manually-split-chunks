@@ -9,7 +9,7 @@ export default defineConfig({
   devtools: inspectEnabled
     ? {
         enabled: true,
-        port: 9998,
+        port: 9997,
         build: { withApp: true },
       }
     : false,
@@ -19,20 +19,26 @@ export default defineConfig({
       inspectEnabled
         ? [inspect({
             build: true,
-            outputDir: '.vite-inspect/vite-custom',
+            outputDir: '.vite-inspect/vite-custom-with-size',
           })]
         : []
     ),
   ],
   build: {
-    outDir: 'dist/vite-custom',
+    outDir: 'dist/vite-custom-with-size',
     assetsDir: '.',
     emptyOutDir: true,
     // XXX(Lumirelle): Used to keep the chunk structure clear for inspection. In production, you should not disable it.
     minify: false,
     rolldownOptions: {
       output: {
+        // See https://github.com/vitejs/vite/issues/22286
+        strictExecutionOrder: true,
         codeSplitting: {
+          // Default Group options, which will be used to control the chunk size and other behaviors.
+          minSize: 100_000, // 100 KB
+          maxSize: 250_000, // 250 KB
+
           groups: [
             // For vendor libraries who are used in every page, we can group them into separate chunk groups.
             {
