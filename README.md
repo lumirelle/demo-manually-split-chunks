@@ -1,4 +1,4 @@
-# Output
+# Manually Split Chunks
 
 ## Vite -- Default Chunks Splitting
 
