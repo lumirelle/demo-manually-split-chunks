@@ -1,0 +1,70 @@
+[env]
+_.path = [ "./node_modules/.bin" ]
+
+[tools]
+# Environments
+bun = "latest"
+aube = "latest"
+# Linters & Formatters
+pkl = "latest"
+hk = "latest"
+
+[deps.bun-aube]
+description = "Automatically install dependencies via aube & bun's lockfile."
+sources = [
+  "package.json",
+  "bun.lock"
+]
+outputs = [ "node_modules/" ]
+# Because aube's output lockfile has bugs,
+# we use `bun install --lockfile-only` to generate a lockfile
+run = "bun install --lockfile-only && aube install"
+auto = true
+
+[tasks.build]
+run = { task = "build:*" }
+
+[tasks."build:webpack-default"]
+run = "webpack build --config webpack.default.config.js --mode production"
+
+[tasks."build:webpack-custom"]
+run = "webpack build --config webpack.custom.config.js --mode production"
+
+[tasks."build:vite-default"]
+run = "./node_modules/vite/bin/vite.js --config vite.default.config.js build"
+
+[tasks."build:vite-custom"]
+run = "./node_modules/vite/bin/vite.js --config vite.custom.config.js build"
+
+[tasks."build:vite7-default"]
+run = "./node_modules/vite7/bin/vite.js --config vite7.default.config.js build"
+
+[tasks."build:vite7-custom"]
+run = "./node_modules/vite7/bin/vite.js --config vite7.custom.config.js build"
+
+[tasks.inspect]
+run = { task = "inspect:*" }
+
+[tasks."inspect:webpack-default"]
+run = "webpack inspect --config webpack.default.config.js --mode production -- --analyze"
+
+[tasks."inspect:webpack-custom"]
+run = "webpack inspect --config webpack.custom.config.js --mode production -- --analyze"
+
+[tasks."inspect:vite-default"]
+run = "INSPECT=true ./node_modules/vite/bin/vite.js --config vite.default.config.js build"
+
+[tasks."inspect:vite-custom"]
+run = "INSPECT=true ./node_modules/vite/bin/vite.js --config vite.custom.config.js build"
+
+[tasks."inspect:vite7-default"]
+run = "INSPECT=true ./node_modules/vite7/bin/vite.js --config vite7.default.config.js build"
+
+[tasks."inspect:vite7-custom"]
+run = "INSPECT=true ./node_modules/vite7/bin/vite.js --config vite7.custom.config.js build"
+
+[tasks.check]
+run = "hk check --all"
+
+[tasks.fix]
+run = "hk fix --all"

@@ -1,6 +1,8 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "extends": ["./node_modules/@lumirelle/oxlint-config/.oxlintrc.ts.json"],
+  "extends": [
+    "./node_modules/@lumirelle/oxlint-config/.oxlintrc.vue.json"
+  ],
   "options": {
     "typeAware": true
   },
