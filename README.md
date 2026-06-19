@@ -1,208 +1,258 @@
 # Manually Split Chunks
 
+Testing on Windows 11 (26200.8728), i5-13490F.
+
 ## Vite -- Default Chunks Splitting
 
-8 items:
+8 items, totally 1.62 MiB:
 
 ```log
- : nr
-√ script to run » build:vite-default
-$ bun run ./node_modules/vite/bin/vite.js --config vite.default.config.js build
-✔ Console Ninja extension is connected to Vite, see https://tinyurl.com/2vt8jxzw
-vite v8.0.13 building client environment for production...
-✓ 2173 modules transformed.
+❯ mise build:vite-default
+[build:vite-default] $ bun run ./node_modules/vite/bin/vite.js --config vite.def…
+vite v8.0.16 building client environment for production...
+✓ 2186 modules transformed.
 computing gzip size...
-dist/vite-default/index.html                               0.44 kB │ gzip:   0.31 kB
+dist/vite-default/index.html                               0.42 kB │ gzip:   0.30 kB
 dist/vite-default/demo-CH7iB75L.css                        0.02 kB │ gzip:   0.04 kB
-dist/vite-default/module-async-C2CEgzJi.js                 0.10 kB │ gzip:   0.10 kB
-dist/vite-default/demo-DICyHcH2.js                         0.79 kB │ gzip:   0.45 kB
-dist/vite-default/demo2-CE1aNW5J.js                       53.93 kB │ gzip:  14.91 kB
-dist/vite-default/index-hhP_j57-.js                       67.95 kB │ gzip:  19.51 kB
-dist/vite-default/runtime-dom.esm-bundler-rgVXy6z0.js    155.88 kB │ gzip:  38.09 kB
-dist/vite-default/echarts-DiuddBA4.js                  1,376.67 kB │ gzip: 330.10 kB
+dist/vite-default/module-async-DOLldLYO.js                 0.10 kB │ gzip:   0.10 kB
+dist/vite-default/demo-CxDl7-Gv.js                         0.79 kB │ gzip:   0.45 kB
+dist/vite-default/demo2-CUgVpAnQ.js                       55.12 kB │ gzip:  14.89 kB
+dist/vite-default/index-tBkhEAci.js                       64.22 kB │ gzip:  18.76 kB
+dist/vite-default/runtime-dom.esm-bundler-Bhx2HOaX.js    156.18 kB │ gzip:  38.17 kB
+dist/vite-default/echarts-bTlC61tD.js                  1,431.93 kB │ gzip: 346.96 kB
 
-✓ built in 427ms
+[INVALID_ANNOTATION] A comment "/* #__PURE__ */" in "node_modules/.aube/@vueuse+core@14.3.0_vue@3.5.38_typescript@6.0.3_/node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+      ╭─[ node_modules/.aube/@vueuse+core@14.3.0_vue@3.5.38_typescript@6.0.3_/node_modules/@vueuse/core/dist/index.js:3362:1 ]
+      │
+ 3362 │ /* #__PURE__ */
+      │ ───────┬───────
+      │        ╰───────── comment ignored due to position
+      │
+      │ Help: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+──────╯
+
+[INVALID_ANNOTATION] A comment "/* #__PURE__ */" in "node_modules/.aube/@vueuse+core@14.3.0_vue@3.5.38_typescript@6.0.3_/node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+      ╭─[ node_modules/.aube/@vueuse+core@14.3.0_vue@3.5.38_typescript@6.0.3_/node_modules/@vueuse/core/dist/index.js:5780:23 ]
+      │
+ 5780 │ const defaultState = (/* #__PURE__ */ {
+      │                       ───────┬───────
+      │                              ╰───────── comment ignored due to position
+      │
+      │ Help: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+──────╯
+
+✓ built in 916ms
 ```
 
 ## Vite -- Custom Chunks Splitting
 
-26 items:
+26 items, totally 1.66 MiB:
 
 ```log
-❯ : nr
-√ script to run » build:vite-custom
-$ bun run ./node_modules/vite/bin/vite.js --config vite.custom.config.js build
-✔ Console Ninja extension is connected to Vite, see https://tinyurl.com/2vt8jxzw
-vite v8.0.13 building client environment for production...
-✓ 2173 modules transformed.
+❯ mise build:vite-custom
+[build:vite-custom] $ bun run ./node_modules/vite/bin/vite.js --config vite.cust…
+vite v8.0.16 building client environment for production...
+✓ 2186 modules transformed.
 computing gzip size...
-dist/vite-custom/index.html                      0.55 kB │ gzip:  0.32 kB
+dist/vite-custom/index.html                      0.53 kB │ gzip:  0.31 kB
 dist/vite-custom/demo-CH7iB75L.css               0.02 kB │ gzip:  0.04 kB
-dist/vite-custom/module-async-DyjcqUVj.js        0.10 kB │ gzip:  0.10 kB
-dist/vite-custom/rolldown-runtime-DC46zqPa.js    0.36 kB │ gzip:  0.25 kB
-dist/vite-custom/echarts-DNxrCaoX.js             0.65 kB │ gzip:  0.30 kB
-dist/vite-custom/demo-DbwTZXK9.js                0.85 kB │ gzip:  0.46 kB
-dist/vite-custom/element-plus-DGn9DAQ5.js        5.03 kB │ gzip:  1.60 kB
-dist/vite-custom/index-BHooU4r1.js               5.42 kB │ gzip:  2.21 kB
-dist/vite-custom/vue-CBoWPEre.js                13.24 kB │ gzip:  4.52 kB
-dist/vite-custom/demo2-D_Bk4JIq.js              54.04 kB │ gzip: 14.93 kB
-dist/vite-custom/vue-MScfqHyg.js                63.14 kB │ gzip: 17.73 kB
-dist/vite-custom/echarts-BPr1wGF6.js            70.03 kB │ gzip: 17.09 kB
-dist/vite-custom/echarts-BNXICRwy.js            71.67 kB │ gzip: 17.96 kB
-dist/vite-custom/echarts-gUKN4hVL.js            73.68 kB │ gzip: 20.66 kB
-dist/vite-custom/echarts-CUR5S4QW.js            77.90 kB │ gzip: 20.61 kB
-dist/vite-custom/echarts-BsCxuwfu.js            81.91 kB │ gzip: 21.03 kB
-dist/vite-custom/echarts-CIGmrhEl.js            82.72 kB │ gzip: 24.57 kB
-dist/vite-custom/echarts-BuO1vw5R.js            82.93 kB │ gzip: 20.91 kB
-dist/vite-custom/echarts-3f-xXFvb.js            85.00 kB │ gzip: 20.76 kB
-dist/vite-custom/element-plus-CnatuWDv.js       99.10 kB │ gzip: 22.32 kB
-dist/vite-custom/echarts-DsiHXKJ9.js           113.84 kB │ gzip: 26.18 kB
-dist/vite-custom/echarts-D8ZwaOPx.js           125.16 kB │ gzip: 30.23 kB
-dist/vite-custom/echarts-Bayj7irQ.js           127.55 kB │ gzip: 30.00 kB
-dist/vite-custom/echarts-EKdkcG0h.js           144.30 kB │ gzip: 35.89 kB
-dist/vite-custom/vue-Bi6EqL9K.js               149.53 kB │ gzip: 36.24 kB
-dist/vite-custom/echarts-BIJfDkWk.js           162.42 kB │ gzip: 37.42 kB
+dist/vite-custom/module-async-DOLldLYO.js        0.10 kB │ gzip:  0.10 kB
+dist/vite-custom/rolldown-runtime-D7D4PA-g.js    0.36 kB │ gzip:  0.25 kB
+dist/vite-custom/echarts-DHVXW8c7.js             0.65 kB │ gzip:  0.29 kB
+dist/vite-custom/demo-NwCs7R7V.js                0.85 kB │ gzip:  0.47 kB
+dist/vite-custom/element-plus-Dau0-XwD.js        5.04 kB │ gzip:  1.61 kB
+dist/vite-custom/index-Cggz9EZd.js               5.42 kB │ gzip:  2.21 kB
+dist/vite-custom/vue-BdR2Odfb.js                13.27 kB │ gzip:  4.52 kB
+dist/vite-custom/demo2-LU0V1wRQ.js              55.22 kB │ gzip: 14.90 kB
+dist/vite-custom/vue-Cpmg4BEI.js                59.41 kB │ gzip: 16.98 kB
+dist/vite-custom/echarts-B21cXxgz.js            70.53 kB │ gzip: 17.17 kB
+dist/vite-custom/echarts-DGqkqv8R.js            72.98 kB │ gzip: 18.39 kB
+dist/vite-custom/echarts-BA__13Bv.js            76.87 kB │ gzip: 20.62 kB
+dist/vite-custom/echarts-CLH8vgg1.js            77.02 kB │ gzip: 21.99 kB
+dist/vite-custom/echarts-DfDQ6nLI.js            84.82 kB │ gzip: 21.66 kB
+dist/vite-custom/echarts-CVEYuXVX.js            86.64 kB │ gzip: 21.17 kB
+dist/vite-custom/echarts-CbELrCnp.js            91.07 kB │ gzip: 27.21 kB
+dist/vite-custom/element-plus-2dayTjbC.js       99.56 kB │ gzip: 22.33 kB
+dist/vite-custom/echarts-CITc4qEB.js           111.58 kB │ gzip: 29.28 kB
+dist/vite-custom/echarts-Cp0ZgkUr.js           118.43 kB │ gzip: 27.22 kB
+dist/vite-custom/echarts-DrK0aC6E.js           128.46 kB │ gzip: 30.19 kB
+dist/vite-custom/echarts-C7opr6O7.js           129.61 kB │ gzip: 32.56 kB
+dist/vite-custom/echarts-r7cZl4NL.js           147.36 kB │ gzip: 36.82 kB
+dist/vite-custom/vue-CO2051e4.js               149.83 kB │ gzip: 36.32 kB
+dist/vite-custom/echarts-FC39c-2X.js           163.21 kB │ gzip: 37.55 kB
 
-✓ built in 353ms
+[INVALID_ANNOTATION] A comment "/* #__PURE__ */" in "node_modules/.aube/@vueuse+core@14.3.0_vue@3.5.38_typescript@6.0.3_/node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+      ╭─[ node_modules/.aube/@vueuse+core@14.3.0_vue@3.5.38_typescript@6.0.3_/node_modules/@vueuse/core/dist/index.js:3362:1 ]
+      │
+ 3362 │ /* #__PURE__ */
+      │ ───────┬───────
+      │        ╰───────── comment ignored due to position
+      │
+      │ Help: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+──────╯
+
+[INVALID_ANNOTATION] A comment "/* #__PURE__ */" in "node_modules/.aube/@vueuse+core@14.3.0_vue@3.5.38_typescript@6.0.3_/node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+      ╭─[ node_modules/.aube/@vueuse+core@14.3.0_vue@3.5.38_typescript@6.0.3_/node_modules/@vueuse/core/dist/index.js:5780:23 ]
+      │
+ 5780 │ const defaultState = (/* #__PURE__ */ {
+      │                       ───────┬───────
+      │                              ╰───────── comment ignored due to position
+      │
+      │ Help: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+──────╯
+
+✓ built in 868ms
 ```
 
 ## Vite 7 -- Default Chunks Splitting
 
-7 items:
+7 items, totally 1.74 MiB:
 
 ```log
-❯ : nr
-√ script to run » build:vite7-default
-$ bun run ./node_modules/vite7/bin/vite.js --config vite7.default.config.js build
-vite v7.3.3 building client environment for production...
-node_modules/.bun/@vueuse+core@14.3.0+d99744f06a420513/node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+❯ mise build:vite7-default
+[build:vite7-default] $ bun run ./node_modules/vite7/bin/vite.js --config vite7.…
+vite v7.3.5 building client environment for production...
+node_modules/.aube/@vueuse+core@14.3.0_vue@3.5.38_typescript@6.0.3_/node_modules/@vueuse/core/dist/index.js (3362:0): A comment
 
 "/* #__PURE__ */"
 
-in "node_modules/.bun/@vueuse+core@14.3.0+d99744f06a420513/node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
-node_modules/.bun/@vueuse+core@14.3.0+d99744f06a420513/node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+in "node_modules/.aube/@vueuse+core@14.3.0_vue@3.5.38_typescript@6.0.3_/node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+node_modules/.aube/@vueuse+core@14.3.0_vue@3.5.38_typescript@6.0.3_/node_modules/@vueuse/core/dist/index.js (5780:22): A comment
 
 "/* #__PURE__ */"
 
-in "node_modules/.bun/@vueuse+core@14.3.0+d99744f06a420513/node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
-✓ 2191 modules transformed.
-dist/vite7-default/index.html                    0.36 kB │ gzip:   0.26 kB
+in "node_modules/.aube/@vueuse+core@14.3.0_vue@3.5.38_typescript@6.0.3_/node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+✓ 2204 modules transformed.
+dist/vite7-default/index.html                    0.34 kB │ gzip:   0.26 kB
 dist/vite7-default/demo-CH7iB75L.css             0.03 kB │ gzip:   0.05 kB
 dist/vite7-default/module-async-BUWF_v6B.js      0.05 kB │ gzip:   0.07 kB
-dist/vite7-default/demo-BMvMTVwn.js              0.76 kB │ gzip:   0.42 kB
-dist/vite7-default/demo2-1b5gJqwH.js            72.94 kB │ gzip:  18.88 kB
-dist/vite7-default/index-CCuguniC.js           293.70 kB │ gzip:  69.21 kB
-dist/vite7-default/echarts-BSqjoYCM.js       1,429.07 kB │ gzip: 313.75 kB
-✓ built in 6.48s
+dist/vite7-default/demo-BlASmrYl.js              0.76 kB │ gzip:   0.42 kB
+dist/vite7-default/demo2-BXKgMVN4.js            73.06 kB │ gzip:  18.91 kB
+dist/vite7-default/index-C_dhSYNS.js           289.35 kB │ gzip:  68.24 kB
+dist/vite7-default/echarts-DKrKWWez.js       1,469.98 kB │ gzip: 325.16 kB
+✓ built in 6.92s
 ```
 
 ## Vite 7 -- Custom Chunks Splitting
 
-8 items:
+8 items, totally 1.74 MiB:
 
 ```log
-❯ : nr
-√ script to run » build:vite7-custom
-$ bun run ./node_modules/vite7/bin/vite.js --config vite7.custom.config.js build
-vite v7.3.3 building client environment for production...
-node_modules/.bun/@vueuse+core@14.3.0+d99744f06a420513/node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+❯ mise build:vite7-custom
+[build:vite7-custom] $ bun run ./node_modules/vite7/bin/vite.js --config vite7.c…
+vite v7.3.5 building client environment for production...
+node_modules/.aube/@vueuse+core@14.3.0_vue@3.5.38_typescript@6.0.3_/node_modules/@vueuse/core/dist/index.js (3362:0): A comment
 
 "/* #__PURE__ */"
 
-in "node_modules/.bun/@vueuse+core@14.3.0+d99744f06a420513/node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
-node_modules/.bun/@vueuse+core@14.3.0+d99744f06a420513/node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+in "node_modules/.aube/@vueuse+core@14.3.0_vue@3.5.38_typescript@6.0.3_/node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+node_modules/.aube/@vueuse+core@14.3.0_vue@3.5.38_typescript@6.0.3_/node_modules/@vueuse/core/dist/index.js (5780:22): A comment
 
 "/* #__PURE__ */"
 
-in "node_modules/.bun/@vueuse+core@14.3.0+d99744f06a420513/node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
-✓ 2191 modules transformed.
-dist/vite7-custom/index.html                    0.42 kB │ gzip:   0.30 kB
+in "node_modules/.aube/@vueuse+core@14.3.0_vue@3.5.38_typescript@6.0.3_/node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+✓ 2204 modules transformed.
+dist/vite7-custom/index.html                    0.41 kB │ gzip:   0.29 kB
 dist/vite7-custom/demo-CH7iB75L.css             0.03 kB │ gzip:   0.05 kB
 dist/vite7-custom/module-async-BUWF_v6B.js      0.05 kB │ gzip:   0.07 kB
-dist/vite7-custom/demo-RXjffYhX.js              0.76 kB │ gzip:   0.42 kB
-dist/vite7-custom/index-CSUxOB84.js             4.76 kB │ gzip:   1.86 kB
-dist/vite7-custom/demo2-DZ_fBN2O.js            72.94 kB │ gzip:  18.88 kB
-dist/vite7-custom/vue-D-fL7kac.js             319.85 kB │ gzip:  74.42 kB
-dist/vite7-custom/echarts-CRt9ehGP.js       1,398.77 kB │ gzip: 306.84 kB
-✓ built in 6.46s
+dist/vite7-custom/demo-CzXc8z3k.js              0.76 kB │ gzip:   0.42 kB
+dist/vite7-custom/index-DgtkwCUJ.js             4.76 kB │ gzip:   1.86 kB
+dist/vite7-custom/demo2-SIoc6sNZ.js            73.06 kB │ gzip:  18.91 kB
+dist/vite7-custom/vue-pDo_MeZZ.js             315.46 kB │ gzip:  73.44 kB
+dist/vite7-custom/echarts-BVnqQWnT.js       1,439.69 kB │ gzip: 318.29 kB
+✓ built in 6.96s
 ```
 
 ## Webpack -- Default Chunks Splitting
 
-7 items:
+7 items, totally 3.82 MiB:
 
 ```log
-❯ : nr
-√ script to run » build:webpack-default
-$ webpack build --config webpack.default.config.js --mode production
-assets by status 3.65 MiB [cached] 6 assets
-asset index.html 251 bytes [compared for emit]
-orphan modules 6.21 MiB [orphan] 1992 modules
+❯ mise build:webpack-default
+[build:webpack-default] $ webpack build --config webpack.default.config.js --mod…
+assets by status 3.74 MiB [big]
+  asset 693-7606414a.js 3.06 MiB [emitted] [immutable] [big] (id hint: vendors)
+  asset index-091db05a.js 698 KiB [emitted] [immutable] [big] (name: index)
+asset 151-dc7ce2fc.js 76.1 KiB [emitted] [immutable] (id hint: vendors)
+asset demo2-bf52104a.js 8.15 KiB [emitted] [immutable] (name: demo2)
+asset demo-989c861b.js 7.66 KiB [emitted] [immutable] (name: demo)
+asset module-async-8f0b5594.js 451 bytes [emitted] [immutable] (name: module-async)
+asset index.html 251 bytes [emitted]
+orphan modules 6.29 MiB [orphan] 1995 modules
 runtime modules 9.33 KiB 11 modules
-cacheable modules 3.42 MiB
-  modules by path ./node_modules/.bun/ 3.12 MiB 176 modules
-  modules by path ./src/ 303 KiB
-    modules by path ./src/modules/*.js 1.24 KiB 4 modules
-    modules by path ./src/views/*.vue 4.79 KiB 4 modules
+cacheable modules 3.54 MiB
+  modules by path ./node_modules/.aube/ 3.25 MiB 186 modules
+  modules by path ./src/ 300 KiB
+    modules by path ./src/modules/*.js 1.23 KiB 4 modules
+    modules by path ./src/views/*.vue 5.47 KiB 4 modules
     ./src/main.js 530 bytes [built] [code generated]
-    ./src/App.vue + 1 modules 601 bytes [built] [code generated]
-    ./src/routers/index.js + 7 modules 296 KiB [built] [code generated]
+    ./src/App.vue + 1 modules 674 bytes [built] [code generated]
+    ./src/routers/index.js + 7 modules 292 KiB [built] [code generated]
 
 WARNING in asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
 This can impact web performance.
 Assets:
-  index-f3022627.js (699 KiB)
-  483-9cebd463.js (2.88 MiB)
+  index-091db05a.js (698 KiB)
+  693-7606414a.js (3.06 MiB)
 
 WARNING in entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
 Entrypoints:
-  index (699 KiB)
-      index-f3022627.js
+  index (698 KiB)
+      index-091db05a.js
 
 
-webpack 5.106.2 compiled with 2 warnings in 2461 ms
+webpack 5.107.2 compiled with 2 warnings in 2792 ms
 ```
 
 ## Webpack -- Custom Chunks Splitting
 
-28 items:
+25 items, totally 3.88 MiB:
 
 ```log
-❯ : nr
-√ script to run » build:webpack-custom
-$ webpack build --config webpack.custom.config.js --mode production
-assets by status 3.71 MiB [cached] 25 assets
-asset index.html 561 bytes [compared for emit]
+❯ mise build:webpack-custom
+[build:webpack-custom] $ webpack build --config webpack.custom.config.js --mode …
+assets by chunk 1.72 MiB (id hint: echarts)
+  assets by status 533 KiB [big] 2 assets
+  + 8 assets
+assets by chunk 1.07 MiB (id hint: defaultVendors)
+  asset vendor-5738d0c9-31501bbe.js 350 KiB [emitted] [immutable] [big] (name: vendor-5738d0c9) (id hint: defaultVendors)
+  asset vendor-3af99290-2d784dd6.js 234 KiB [emitted] [immutable] (name: vendor-3af99290) (id hint: defaultVendors)
+  + 3 assets
+assets by chunk 1010 KiB (id hint: vue)
+  assets by status 529 KiB [big] 2 assets
+  + 3 assets
++ 5 assets
 Entrypoint index [big] 1.02 MiB = 6 assets
-orphan modules 5.37 MiB [orphan] 1943 modules
-runtime modules 10.9 KiB 12 modules
-cacheable modules 3.42 MiB
-  modules by path ./node_modules/.bun/ 3.34 MiB 225 modules
-  modules by path ./src/ 75.8 KiB
-    modules by path ./src/modules/*.js 1.24 KiB 4 modules
-    modules by path ./src/views/*.vue 73.1 KiB 4 modules
+orphan modules 5.42 MiB [orphan] 1942 modules
+runtime modules 10.8 KiB 12 modules
+cacheable modules 3.54 MiB
+  modules by path ./node_modules/.aube/ 3.46 MiB 239 modules
+  modules by path ./src/ 76.7 KiB
+    modules by path ./src/modules/*.js 1.23 KiB 4 modules
+    modules by path ./src/views/*.vue 73.9 KiB 4 modules
     ./src/main.js 530 bytes [built] [code generated]
-    ./src/App.vue + 1 modules 601 bytes [built] [code generated]
-    ./src/routers/index.js 372 bytes [built] [code generated]
+    ./src/App.vue + 1 modules 674 bytes [built] [code generated]
+    ./src/routers/index.js 361 bytes [built] [code generated]
 
 WARNING in asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
 This can impact web performance.
 Assets:
-  vue-a5d024e0-f181c030.js (275 KiB)
-  vue-70f75098-b157f866.js (252 KiB)
-  echarts-de9ee17b-a66636bc.js (251 KiB)
-  vendor-eec623bc-e5b245ca.js (319 KiB)
+  vue-8a2e3a6d-722965fa.js (276 KiB)
+  vue-7fea91be-609449ae.js (253 KiB)
+  echarts-3377815f-afbd0cf6.js (274 KiB)
+  echarts-359c601c-b49a7b96.js (259 KiB)
+  vendor-5738d0c9-31501bbe.js (350 KiB)
 
 WARNING in entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
 Entrypoints:
   index (1.02 MiB)
-      vue-eeff1e3f-66384739.js
-      vue-c4d15388-71b0c3fd.js
-      vue-70f75098-b157f866.js
-      vue-a05153f5-ca650ddc.js
-      vue-a5d024e0-f181c030.js
-      index-87b9c45d.js
+      vue-1936a24a-1d3ea258.js
+      vue-af9ba5ae-fa4e2b37.js
+      vue-7fea91be-609449ae.js
+      vue-a9239bb3-8351044a.js
+      vue-8a2e3a6d-722965fa.js
+      index-b977f806.js
 
 
-webpack 5.106.2 compiled with 2 warnings in 2308 ms
+webpack 5.107.2 compiled with 2 warnings in 2635 ms
 ```
