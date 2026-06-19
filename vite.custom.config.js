@@ -32,6 +32,8 @@ export default defineConfig({
     minify: false,
     rolldownOptions: {
       output: {
+        // See https://github.com/vitejs/vite/issues/22286
+        strictExecutionOrder: true,
         codeSplitting: {
           // Default Group options, which will be used to control the chunk size and other behaviors.
           minSize: 100_000, // 100 KB

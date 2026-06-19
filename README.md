@@ -41,45 +41,59 @@ dist/vite-default/echarts-bTlC61tD.js                  1,431.93 kB │ gzip: 346
       │ Help: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
 ──────╯
 
-✓ built in 916ms
+✓ built in 896ms
 ```
 
 ## Vite -- Custom Chunks Splitting
 
-26 items, totally 1.66 MiB:
+40 items, totally 3.90 MiB:
 
 ```log
 ❯ mise build:vite-custom
-[build:vite-custom] $ bun run ./node_modules/vite/bin/vite.js --config vite.cust…
+[build:vite-custom] $ bun run ./node_modules/vite/bin/vite.js --config vite.custom.config.js build
 vite v8.0.16 building client environment for production...
 ✓ 2186 modules transformed.
 computing gzip size...
-dist/vite-custom/index.html                      0.53 kB │ gzip:  0.31 kB
+dist/vite-custom/index.html                      0.61 kB │ gzip:  0.33 kB
 dist/vite-custom/demo-CH7iB75L.css               0.02 kB │ gzip:  0.04 kB
-dist/vite-custom/module-async-DOLldLYO.js        0.10 kB │ gzip:  0.10 kB
-dist/vite-custom/rolldown-runtime-D7D4PA-g.js    0.36 kB │ gzip:  0.25 kB
-dist/vite-custom/echarts-DHVXW8c7.js             0.65 kB │ gzip:  0.29 kB
-dist/vite-custom/demo-NwCs7R7V.js                0.85 kB │ gzip:  0.47 kB
-dist/vite-custom/element-plus-Dau0-XwD.js        5.04 kB │ gzip:  1.61 kB
-dist/vite-custom/index-Cggz9EZd.js               5.42 kB │ gzip:  2.21 kB
-dist/vite-custom/vue-BdR2Odfb.js                13.27 kB │ gzip:  4.52 kB
-dist/vite-custom/demo2-LU0V1wRQ.js              55.22 kB │ gzip: 14.90 kB
-dist/vite-custom/vue-Cpmg4BEI.js                59.41 kB │ gzip: 16.98 kB
-dist/vite-custom/echarts-B21cXxgz.js            70.53 kB │ gzip: 17.17 kB
-dist/vite-custom/echarts-DGqkqv8R.js            72.98 kB │ gzip: 18.39 kB
-dist/vite-custom/echarts-BA__13Bv.js            76.87 kB │ gzip: 20.62 kB
-dist/vite-custom/echarts-CLH8vgg1.js            77.02 kB │ gzip: 21.99 kB
-dist/vite-custom/echarts-DfDQ6nLI.js            84.82 kB │ gzip: 21.66 kB
-dist/vite-custom/echarts-CVEYuXVX.js            86.64 kB │ gzip: 21.17 kB
-dist/vite-custom/echarts-CbELrCnp.js            91.07 kB │ gzip: 27.21 kB
-dist/vite-custom/element-plus-2dayTjbC.js       99.56 kB │ gzip: 22.33 kB
-dist/vite-custom/echarts-CITc4qEB.js           111.58 kB │ gzip: 29.28 kB
-dist/vite-custom/echarts-Cp0ZgkUr.js           118.43 kB │ gzip: 27.22 kB
-dist/vite-custom/echarts-DrK0aC6E.js           128.46 kB │ gzip: 30.19 kB
-dist/vite-custom/echarts-C7opr6O7.js           129.61 kB │ gzip: 32.56 kB
-dist/vite-custom/echarts-r7cZl4NL.js           147.36 kB │ gzip: 36.82 kB
-dist/vite-custom/vue-CO2051e4.js               149.83 kB │ gzip: 36.32 kB
-dist/vite-custom/echarts-FC39c-2X.js           163.21 kB │ gzip: 37.55 kB
+dist/vite-custom/module-async-1wntcOP4.js        0.19 kB │ gzip:  0.17 kB
+dist/vite-custom/echarts-6bGilPvC.js             1.03 kB │ gzip:  0.43 kB
+dist/vite-custom/demo-DfV6GBNe.js                1.38 kB │ gzip:  0.64 kB
+dist/vite-custom/rolldown-runtime-D9B2Ntkf.js    1.48 kB │ gzip:  0.69 kB
+dist/vite-custom/demo2-BA6U9Bx8.js               1.49 kB │ gzip:  0.68 kB
+dist/vite-custom/index-D5SBBIeU.js               7.04 kB │ gzip:  2.61 kB
+dist/vite-custom/vue-dFdeoUI1.js                43.35 kB │ gzip: 12.10 kB
+dist/vite-custom/vue-6OHdDS9C.js                57.82 kB │ gzip: 16.06 kB
+dist/vite-custom/element-plus-DbThr7oa.js       62.34 kB │ gzip: 14.24 kB
+dist/vite-custom/echarts-C8E6CKsg.js            74.30 kB │ gzip: 17.77 kB
+dist/vite-custom/element-plus-DT5lOUOu.js       76.82 kB │ gzip: 19.48 kB
+dist/vite-custom/echarts-Crv5nWeE.js            77.14 kB │ gzip: 19.26 kB
+dist/vite-custom/echarts-GezADXPZ.js            79.53 kB │ gzip: 21.17 kB
+dist/vite-custom/echarts-CuhnSP-z.js            80.40 kB │ gzip: 22.78 kB
+dist/vite-custom/echarts-DoBGa1q5.js            89.66 kB │ gzip: 21.70 kB
+dist/vite-custom/echarts-BcG-ipr4.js            92.92 kB │ gzip: 23.09 kB
+dist/vite-custom/echarts-Aj7qjPzh.js            93.24 kB │ gzip: 27.68 kB
+dist/vite-custom/element-plus-C_8WLnu9.js      101.12 kB │ gzip: 25.56 kB
+dist/vite-custom/echarts-UD4BDjN7.js           116.11 kB │ gzip: 30.30 kB
+dist/vite-custom/element-plus-D6JWeedh.js      118.07 kB │ gzip: 25.44 kB
+dist/vite-custom/element-plus-gGs9wyH0.js      120.16 kB │ gzip: 23.76 kB
+dist/vite-custom/element-plus-EXlz76yu.js      123.40 kB │ gzip: 22.70 kB
+dist/vite-custom/element-plus-tq6qdnQW.js      124.10 kB │ gzip: 24.97 kB
+dist/vite-custom/echarts-B5SJYiMN.js           124.12 kB │ gzip: 28.15 kB
+dist/vite-custom/element-plus-CTEDizGw.js      129.81 kB │ gzip: 28.87 kB
+dist/vite-custom/echarts-2zzUtNW9.js           134.31 kB │ gzip: 32.98 kB
+dist/vite-custom/echarts-B4NkVCMw.js           134.65 kB │ gzip: 31.36 kB
+dist/vite-custom/element-plus--PtMHeJa.js      143.02 kB │ gzip: 27.86 kB
+dist/vite-custom/echarts-DQglEYy5.js           145.30 kB │ gzip: 35.23 kB
+dist/vite-custom/element-plus-BlVoQHxO.js      154.60 kB │ gzip: 32.91 kB
+dist/vite-custom/element-plus-C9xeQHQV.js      171.96 kB │ gzip: 33.78 kB
+dist/vite-custom/echarts-CEa5iAgq.js           172.18 kB │ gzip: 39.05 kB
+dist/vite-custom/element-plus-DPse25gI.js      186.43 kB │ gzip: 32.24 kB
+dist/vite-custom/vue-WArCTO8n.js               191.45 kB │ gzip: 46.36 kB
+dist/vite-custom/element-plus-CPqO3CYY.js      200.68 kB │ gzip: 45.91 kB
+dist/vite-custom/element-plus-BzV3qpO1.js      207.52 kB │ gzip: 44.74 kB
+dist/vite-custom/element-plus-D8w4NtsO.js      218.14 kB │ gzip: 47.02 kB
+dist/vite-custom/element-plus-BUBBj_nd.js      241.92 kB │ gzip: 52.86 kB
 
 [INVALID_ANNOTATION] A comment "/* #__PURE__ */" in "node_modules/.aube/@vueuse+core@14.3.0_vue@3.5.38_typescript@6.0.3_/node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
       ╭─[ node_modules/.aube/@vueuse+core@14.3.0_vue@3.5.38_typescript@6.0.3_/node_modules/@vueuse/core/dist/index.js:3362:1 ]
@@ -101,7 +115,7 @@ dist/vite-custom/echarts-FC39c-2X.js           163.21 kB │ gzip: 37.55 kB
       │ Help: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
 ──────╯
 
-✓ built in 868ms
+✓ built in 966ms
 ```
 
 ## Vite 7 -- Default Chunks Splitting
