@@ -31,16 +31,16 @@ run = "webpack build --config webpack.default.config.js --mode production"
 run = "webpack build --config webpack.custom.config.js --mode production"
 
 [tasks."build:vite-default"]
-run = "./node_modules/vite/bin/vite.js --config vite.default.config.js build"
+run = "bun run ./node_modules/vite/bin/vite.js --config vite.default.config.js build"
 
 [tasks."build:vite-custom"]
-run = "./node_modules/vite/bin/vite.js --config vite.custom.config.js build"
+run = "bun run ./node_modules/vite/bin/vite.js --config vite.custom.config.js build"
 
 [tasks."build:vite7-default"]
-run = "./node_modules/vite7/bin/vite.js --config vite7.default.config.js build"
+run = "bun run ./node_modules/vite7/bin/vite.js --config vite7.default.config.js build"
 
 [tasks."build:vite7-custom"]
-run = "./node_modules/vite7/bin/vite.js --config vite7.custom.config.js build"
+run = "bun run ./node_modules/vite7/bin/vite.js --config vite7.custom.config.js build"
 
 [tasks.inspect]
 run = { task = "inspect:*" }
@@ -52,16 +52,16 @@ run = "webpack inspect --config webpack.default.config.js --mode production -- -
 run = "webpack inspect --config webpack.custom.config.js --mode production -- --analyze"
 
 [tasks."inspect:vite-default"]
-run = "INSPECT=true ./node_modules/vite/bin/vite.js --config vite.default.config.js build"
+run = "INSPECT=true bun run ./node_modules/vite/bin/vite.js --config vite.default.config.js build"
 
 [tasks."inspect:vite-custom"]
-run = "INSPECT=true ./node_modules/vite/bin/vite.js --config vite.custom.config.js build"
+run = "INSPECT=true bun run ./node_modules/vite/bin/vite.js --config vite.custom.config.js build"
 
 [tasks."inspect:vite7-default"]
-run = "INSPECT=true ./node_modules/vite7/bin/vite.js --config vite7.default.config.js build"
+run = "INSPECT=true bun run ./node_modules/vite7/bin/vite.js --config vite7.default.config.js build"
 
 [tasks."inspect:vite7-custom"]
-run = "INSPECT=true ./node_modules/vite7/bin/vite.js --config vite7.custom.config.js build"
+run = "INSPECT=true bun run ./node_modules/vite7/bin/vite.js --config vite7.custom.config.js build"
 
 [tasks.check]
 run = "hk check --all"
