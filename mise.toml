@@ -19,6 +19,30 @@ outputs = ["node_modules/"]
 run = "bun install --lockfile-only && aube install"
 auto = true
 
+[tasks."dev:webpack-default"]
+run = "webpack serve --config webpack.default.config.js --mode production"
+
+[tasks."dev:webpack-custom"]
+run = "webpack serve --config webpack.custom.config.js --mode production"
+
+[tasks."dev:webpack-custom-with-size"]
+run = "webpack serve --config webpack.custom-with-size.config.js --mode production"
+
+[tasks."dev:vite-default"]
+run = "bun run ./node_modules/vite/bin/vite.js --config vite.default.config.js dev"
+
+[tasks."dev:vite-custom"]
+run = "bun run ./node_modules/vite/bin/vite.js --config vite.custom.config.js dev"
+
+[tasks."dev:vite-custom-with-size"]
+run = "bun run ./node_modules/vite/bin/vite.js --config vite.custom-with-size.config.js dev"
+
+[tasks."dev:vite7-default"]
+run = "bun run ./node_modules/vite7/bin/vite.js --config vite7.default.config.js dev"
+
+[tasks."dev:vite7-custom"]
+run = "bun run ./node_modules/vite7/bin/vite.js --config vite7.custom.config.js dev"
+
 [tasks.build]
 run = { task = "build:*" }
 
@@ -45,6 +69,33 @@ run = "bun run ./node_modules/vite7/bin/vite.js --config vite7.default.config.js
 
 [tasks."build:vite7-custom"]
 run = "bun run ./node_modules/vite7/bin/vite.js --config vite7.custom.config.js build"
+
+[tasks."start:webpack-default"]
+# TODO: Use correct command
+run = "webpack start --config webpack.default.config.js --mode production"
+
+[tasks."start:webpack-custom"]
+# TODO: Use correct command
+run = "webpack start --config webpack.custom.config.js --mode production"
+
+[tasks."start:webpack-custom-with-size"]
+# TODO: Use correct command
+run = "webpack start --config webpack.custom-with-size.config.js --mode production"
+
+[tasks."start:vite-default"]
+run = "bun run ./node_modules/vite/bin/vite.js --config vite.default.config.js preview"
+
+[tasks."start:vite-custom"]
+run = "bun run ./node_modules/vite/bin/vite.js --config vite.custom.config.js preview"
+
+[tasks."start:vite-custom-with-size"]
+run = "bun run ./node_modules/vite/bin/vite.js --config vite.custom-with-size.config.js preview"
+
+[tasks."start:vite7-default"]
+run = "bun run ./node_modules/vite7/bin/vite.js --config vite7.default.config.js preview"
+
+[tasks."start:vite7-custom"]
+run = "bun run ./node_modules/vite7/bin/vite.js --config vite7.custom.config.js preview"
 
 [tasks.inspect]
 run = { task = "inspect:*" }

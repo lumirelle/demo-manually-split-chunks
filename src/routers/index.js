@@ -1,11 +1,11 @@
-import { createMemoryHistory, createRouter } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
-  { path: '/', component: () => import(/* webpackChunkName: "demo" */ '../views/demo.vue') },
-  { path: '/xxx', component: () => import(/* webpackChunkName: "demo2" */ '../views/demo2.vue') },
+  { path: '/', component: () => import(/* webpackChunkName: "index.vue" */ '../views/index.vue') },
+  { path: '/123', component: () => import(/* webpackChunkName: "123.vue" */ '../views/123.vue') },
 ]
 
 export const router = createRouter({
-  history: createMemoryHistory(),
+  history: createWebHistory(),
   routes,
 })

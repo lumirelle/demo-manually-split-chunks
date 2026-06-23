@@ -1,18 +1,17 @@
-<!-- src > App.vue -->
 <script setup>
-import { ElBreadcrumb, ElButton, ElInput } from 'element-plus'
+import { ElInput } from 'element-plus'
 // oxlint-disable no-console
 import { ref } from 'vue'
 import echarts from '../modules/echarts'
 
 const count = ref(1)
 console.log('This is index.vue')
-console.log(ElInput, ElButton, ElBreadcrumb, echarts)
+console.log(ElInput, echarts)
 </script>
 
 <template>
   <div class="container">
-    <p>Vue3 Project</p>
+    <p>Vue3 Project / index</p>
     <p class="text">
       count: {{ count }}
     </p>
