@@ -352,11 +352,16 @@ webpack 5.107.2 compiled with 2 warnings in 2689 ms
 
 ## Summary
 
-It's recommended to use manually chunks splitting without specific min & max size:
+Until now, it's still recommended to use manually chunks splitting without specific min & max size:
 
 - Manually chunks splitting can improve the cache efficiency;
 - Specific min & max size will increase totally dist size, because:
   > [Be aware that manual code splitting can change the behavior of the application if side effects are triggered before the corresponding modules are actually used. You can change the chunking configuration to group some modules so that the modules are reordered, or you can use the `output.strictExecutionOrder` option to ensure that modules are executed in the order they are imported with the cost of a slight increase in bundle size.](https://rolldown.rs/reference/OutputOptions.codeSplitting#codesplitting)
 
-  Basically, in most of the cases, you should couple `output.strictExecutionOrder=true` with `output.codeSplitting.minSize` & `output.codeSplitting.maxSize`, which looks like driving in reverse: "Back to the Webpack Era", 😆.
+  Basically, in most of the cases, you should couple `output.strictExecutionOrder=true` with `output.codeSplitting.minSize` & `output.codeSplitting.maxSize`, ~~which looks like driving in reverse: "Back to the Webpack Era", 😆~~.
+
+  > [!Note]
+  > Since Vite 8.1.0, the output size has been greatly improved, much smaller than Webpack and close to the Vite default, but there is still some minor mistakes stop us using it.
+  >
+  > In this repo, function accesses `defaults_default.install` & `defaults_default.version` from `element-plus/es/index.mjs` are correctly tree-shaked but still appear in the output bundle in accident.
 - Specific min & max size hides the real problem: you'd better not load to much things for one page, all of the optimizations apply on a huge page are just like patches, not the cures.
