@@ -2,6 +2,21 @@ amends "package://github.com/jdx/hk/releases/download/v1.46.0/hk@1.46.0#/Config.
 import "package://github.com/jdx/hk/releases/download/v1.46.0/hk@1.46.0#/Builtins.pkl"
 
 local linters = new Mapping<String, Step> {
+  // Configurations
+  ["stylua"] = (Builtins.stylua) {
+    glob = List("**/*.lua")
+  }
+  ["pkl"] = (Builtins.pkl) {
+    glob = List("**/*.pkl")
+    check = "pkl eval {{files}}"
+  }
+  ["pkl-format"] = (Builtins.pkl_format) {
+    glob = List("**/*.pkl")
+    shell = null
+    check_list_files = "pkl format --diff-name-only {{ files }}"
+    fix = "pkl format --write {{ files }}"
+  }
+
   // JS & TS & ...
   ["oxlint"] = Builtins.ox_lint
   ["eslint"] = (Builtins.eslint) {
@@ -33,17 +48,6 @@ local linters = new Mapping<String, Step> {
         "*.vue",
       )
     depends = List("oxlint")
-  }
-
-  // Configurations
-  ["pkl"] = (Builtins.pkl) {
-    glob = List("**/*.pkl")
-    check = "pkl eval {{files}}"
-  }
-  ["pkl-format"] {
-    glob = List("**/*.pkl")
-    check = "pkl format --diff-name-only {{ files }}"
-    fix = "pkl format --write {{ files }}"
   }
 }
 
